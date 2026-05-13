@@ -1,0 +1,29 @@
+.footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.col h3 { font-size: 1.1rem; margin-bottom: 1rem; color: #0070f3; }
+.col ul { list-style: none; padding: 0; }
+.col li { margin-bottom: 0.5rem; cursor: pointer; color: #ccc; }
+.col p { font-size: 0.9rem; line-height: 1.6; color: #aaa; }
+
+.partnerBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

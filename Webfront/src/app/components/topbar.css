@@ -1,0 +1,153 @@
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.searchBtn,
+.categorySelect,
+.userProfile,
+.cryptoInvite {
+  display: none !important;
+}
+
+.location span {
+  display: none !important;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.searchContainer {
+  display: flex;
+  flex: 1;
+  border: 2px solid #0070f3;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 8px;
+}
+
+.searchContainer input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column; /* Apilado vertical */
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+
+  .topRow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .topbar {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    font-family: sans-serif;
+  }
+
+  .logo { font-weight: bold; font-size: 1.5rem; color: #0070f3; }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .location span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex !important;
+  }
+
+  .searchContainer {
+    display: flex;
+    flex: 1;
+    border: 2px solid #0070f3;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 50%;
+  }
+
+  .categorySelect {
+    border: none;
+    padding: 0 10px;
+    background: #f0f0f0; 
+    outline: none; 
+    display: flex !important;
+  }
+
+  .searchContainer input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+  }
+
+  .searchBtn {
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex !important;
+  }
+
+  .actions {
+    display: flex !important;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cryptoInvite {
+    display: flex !important;
+    color: #8a2be2;
+    font-weight: bold;
+    text-align: center;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .icon {
+    cursor: pointer;
+    color: #555; 
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
+
+}

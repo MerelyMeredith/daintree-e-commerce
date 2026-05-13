@@ -15,6 +15,7 @@ Webfront/coverage
 
 # next.js
 Webfront/.next/
+/.next/
 Webfront/out/
 
 # production

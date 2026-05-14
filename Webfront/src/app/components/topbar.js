@@ -1,16 +1,16 @@
 'use client';
 
 import './topbar.css';
-import { ShoppingCart, Bell, User, MapPin, Search } from 'lucide-react';
+import { ShoppingCart, Bell, User, MapPin, Search, Shell } from 'lucide-react';
 
 export default function Topbar() {
   return (
     <header className="topbar">
       <div className="topRow">
-        <div className="logo">LOGO</div>
+        <Shell  className="icon" size={52} color="blue"/>
         
         <div className="location">
-          <MapPin size={18} />
+          <MapPin className="icon" size={24} />
           <span>Select Location</span>
         </div>
 
@@ -21,21 +21,21 @@ export default function Topbar() {
             <option>Services</option>
           </select>
           <input type="text" placeholder="Search for anything..." />
-          <button className="searchBtn"><Search size={18} /></button>
+          <button className="searchBtn"><Search size={20} height={-1}/></button>
         </div>
 
         <div className="actions">
           <div className="cryptoInvite">
             <span>Play to Earn</span>
+            <br/>
             <small>Crypto Games</small>
           </div>
-          <Bell className="icon" />
-          <ShoppingCart className="icon" />
+          <Bell className="icon" size={24} />
+          <ShoppingCart className="icon" size={24} />
           <div className="userProfile">
-            <User />
+            <User className="icon" />
             <div className="userInfo">
-              <span>Join / Login</span>
-              <small>Credit: $0.00</small>
+              <small>join</small>
             </div>
           </div>
         </div>

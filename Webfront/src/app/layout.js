@@ -1,13 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { TASA_Orbiter } from "next/font/google";
+import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geistSans = TASA_Orbiter({
+  weight: '600',
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistMono = TASA_Orbiter({
+  weight: '400',
   subsets: ["latin"],
 });
 
@@ -18,11 +19,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className="${geistSans.variable} ${geistMono.variable} h-full antialiased"
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className="${geistSans.variable} ${geistMono.variable} h-full antialiased"
+      >
+        <body className="min-h-full flex flex-col">{children}</body>
+      </html>
+    </ViewTransitions>
   );
 }

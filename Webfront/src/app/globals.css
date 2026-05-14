@@ -1,23 +1,101 @@
+:root {
+  /* Brand Colors */
+  --primary: #0070f3;
+  --primary-glow: rgba(0, 112, 243, 0.15);
+  --secondary: #00dfd8;
+  --accent: #8a2be2;
+  
+  /* Neutral Palette */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --muted: #f8fafc;
+  --border: #e2e8f0;
+  --text-main: #334155;
+  --text-muted: #64748b;
+
+  /* Spacing & Radii */
+  --radius: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Smooth scrolling for the whole page */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
 .container {
-  width: 100vw;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .main {
   margin: 0 auto;
-  padding: 2rem;
-  min-height: 80vh;
+  padding: 4rem 2rem;
+  min-height: 85vh;
+  /* Subtle grain or soft gradient to break up flat white */
+  background-image: radial-gradient(circle at top right, rgba(0, 112, 243, 0.02), transparent);
 }
 
+/* Modern Grid with better spacing */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
+/* Overhauled Card Design */
 .card {
   aspect-ratio: 1 / 1;
-  background: #f4f4f4;
-  border: 2px dashed #ccc;
-  border-radius: 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+/* Decorative background for empty cards */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-glow), transparent);
+  opacity: 0.5;
+}
+
+/* Typography Overrides */
+h1, h2, h3 {
+  color: var(--foreground);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-main);
 }

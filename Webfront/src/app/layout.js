@@ -2,14 +2,19 @@ import { TASA_Orbiter } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 
+import Topbar from './components/topbar';
+import Footer from './components/footer';
+
 const geistSans = TASA_Orbiter({
   weight: '600',
   subsets: ["latin"],
+  adjustFontFallback: false,
 });
 
 const geistMono = TASA_Orbiter({
   weight: '400',
   subsets: ["latin"],
+  adjustFontFallback: false,
 });
 
 export const metadata = {
@@ -24,7 +29,11 @@ export default function RootLayout({ children }) {
         lang="en"
         className="${geistSans.variable} ${geistMono.variable} h-full antialiased"
       >
-        <body className="min-h-full flex flex-col">{children}</body>
+        <body className="min-h-full flex flex-col">
+          <Topbar />
+            {children}
+          <Footer />
+        </body>
       </html>
     </ViewTransitions>
   );

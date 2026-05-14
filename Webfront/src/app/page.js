@@ -1,7 +1,5 @@
 'use client';
 
-import Topbar from './components/topbar';
-import Footer from './components/footer';
 import './globals.css';
 
 export default function Home() {
@@ -9,8 +7,6 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Topbar />
-      
       <main className="main">
         <section className="hero">
           <h1>Welcome to the Platform</h1>
@@ -22,8 +18,6 @@ export default function Home() {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -1,0 +1,102 @@
+/* history.css */
+
+.history-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.history-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modern Table Styling */
+.table-wrapper {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden; /* Keeps the corners rounded */
+  box-shadow: var(--shadow-md);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.history-table th {
+  background: var(--muted);
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.history-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table tr:hover {
+  background-color: rgba(0, 112, 243, 0.02);
+}
+
+/* Status Badges */
+.status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.order-id {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.price-cell {
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .history-table thead {
+    display: none; /* Hide headers on tiny screens */
+  }
+  
+  .history-table td {
+    display: block;
+    text-align: right;
+    padding: 0.75rem 1rem;
+  }
+  
+  .history-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+}

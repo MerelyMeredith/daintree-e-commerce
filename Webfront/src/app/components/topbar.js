@@ -7,12 +7,15 @@ export default function Topbar() {
   return (
     <header className="topbar">
       <div className="topRow">
-        <Shell  className="icon" size={52} color="blue"/>
-        
-        <div className="location">
-          <MapPin className="icon" size={24} />
-          <span>Select Location</span>
-        </div>
+        <a href='/'>
+          <Shell  className="icon" size={52} color="blue"/>
+        </a>
+        <a href='/location'>
+          <div className="location">
+            <MapPin className="icon" size={24} />
+            <span>Select Location</span>
+          </div>
+        </a>
 
         <div className="searchContainer">
           <select className="categorySelect">
@@ -25,15 +28,20 @@ export default function Topbar() {
         </div>
 
         <div className="actions">
-          <div className="cryptoInvite">
-            <span>Play to Earn</span>
-            <br/>
-            <small>Crypto Games</small>
-          </div>
-          <Bell className="icon" size={24} />
-          <ShoppingCart className="icon" size={24} />
+          <a href="https://blinkgalaxy.com/games">
+            <button className="cryptoInvite" 
+            >Play 2 Earn<br/>join blink galaxy</button>
+          </a>
+          <a href='/user/dashboard/notifications'>
+            <Bell className="icon" size={24} />
+          </a>
+          <a href='/user/dashboard/cart'>
+            <ShoppingCart className="icon" size={24} />
+          </a>
           <div className="userProfile">
-            <User className="icon" />
+            <a href='/user'>
+              <User className="icon" />
+            </a>
             <div className="userInfo">
               <small>join</small>
             </div>

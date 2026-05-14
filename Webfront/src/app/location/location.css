@@ -1,0 +1,129 @@
+/* location.css */
+
+.location-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header & Breadcrumbs */
+.location-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Main Layout: Controls on Left, Map on Right */
+.location-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  min-height: 500px;
+}
+
+/* Control Panel */
+.location-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* Map Placeholder */
+.map-viewport {
+  background: #e5e7eb;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-viewport::after {
+  content: "📍 Map Provider Placeholder";
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Address List */
+.saved-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.location-item {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-item:hover {
+  background: var(--muted);
+  border-color: var(--primary);
+}
+
+.location-item.active {
+  border-color: var(--primary);
+  background: var(--primary-glow);
+}
+
+.save-loc-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 950px) {
+  .location-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-viewport {
+    height: 300px;
+    order: -1;
+  }
+}

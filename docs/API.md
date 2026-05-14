@@ -820,38 +820,43 @@ module.exports = routes;
 ## Users
 
 Consulta de todos los usuarios (get)
+/users
 ```bash
 curl http://localhost:4000/users
 ```
-
+/users/:id
 Consulta de un usuario
 ```bash
 curl http://localhost:4000/users/1
 ```
-
+/users
 Creacion de un usuario
 ```bash
 curl -X POST http://localhost:4000/users -H "Content-Type: application/json" -d '{"name":"Ana López","email":"ana@ejemplo.com","password":"segura1234","role":"user"}'
 ```
-
+/users/:id
 Actualizacion de campos de un usuario
 ```bash
 curl -X PUT http://localhost:4000/users/1 -H "Content-Type: application/json" -d '{"name":"Ana Ruiz","email":"ana.nueva@ejemplo.com","role":"admin"}'
 ```
-
+/users/:id/password
 Actualizacion de contrasena (probar si funciona, contra hasheada)
 ```bash
 curl -X PUT http://localhost:4000/users/1/password -H "Content-Type: application/json" -d '{"password":"nuevaSegura99"}'
 ```
-
-
+/users/:id
+Eliminar un usuario 
+```bash
+curl -X DELETE http://localhost:4000/users/1
+```
 ## Category 
 
+/Categories
 Obtener todas las categorias
 ```bash
 curl http://localhost:4000/categories
 ```
-
+/categories/:id/
 Ingresar una nueva categoria 
 ```bash
 curl -X POST http://localhost:4000/categories -H "Content-Type: application/json" -d '{"name":"Periféricos"}'
@@ -889,3 +894,26 @@ Modificar un metodo de shipping
 ```bash
 curl -X PUT http://localhost:4000/shipping/1 -H "Content-Type: application/json" -d '{"price":79,"estimatedDays":6,"active":true}'
 ```
+## Products
+Consultar todos los productos
+
+```bash
+curl http://localhost:4000/products
+```
+
+```
+
+
+
+
+
+
+
+
+
+
+## Para barra de busqueda
+```bash
+curl "http://localhost:4000/products/search?q=celular"
+```
+"celular" seria cualquier nombre de producto / categoria

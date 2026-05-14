@@ -853,6 +853,7 @@ curl -X DELETE http://localhost:4000/users/1
 
 /Categories
 Obtener todas las categorias
+/categories
 ```bash
 curl http://localhost:4000/categories
 ```
@@ -862,15 +863,18 @@ Ingresar una nueva categoria
 curl -X POST http://localhost:4000/categories -H "Content-Type: application/json" -d '{"name":"Periféricos"}'
 ```
 
-Traer una categoria en especifico con todos sus productos 
+Crear una categoria en especifico con todos sus productos 
+/categories
 ```bash
 curl -X POST http://localhost:4000/categories -H "Content-Type: application/json" -d '{"name":"Periféricos"}'
 ```
 Actualizar el nombre de una categoria 
+/categories/:id
 ```bash
 curl -X PUT http://localhost:4000/categories/1 -H "Content-Type: application/json" -d '{"name":"Periféricos Gaming"}'
 ```
 Eliminar una categoria
+/categories/:id
 ```bash
 curl http://localhost:4000/categories
 ```
@@ -878,40 +882,90 @@ curl http://localhost:4000/categories
 ## Shipping
 
 Obtener todos los metodos de shipping
+/shipping
 ```bash
 curl http://localhost:4000/shipping
 ```
 
 Mandar traer un metodo de shipping
+/shipping/:id
 ```bash
 curl http://localhost:4000/shipping/1
 ```
 Crear un metodo de shipping
+/shipping
 ```bash
 curl -X POST http://localhost:4000/shipping -H "Content-Type: application/json" -d '{"name":"Estándar","description":"Entrega en 5-7 días","price":99,"estimatedDays":7}'
 ```
 Modificar un metodo de shipping
+/shipping/:id
 ```bash
 curl -X PUT http://localhost:4000/shipping/1 -H "Content-Type: application/json" -d '{"price":79,"estimatedDays":6,"active":true}'
 ```
+
+/*******/ Esta funcion no esta comprobada, solo probada /*********/
+
+
 ## Products
 Consultar todos los productos
-
+/products
 ```bash
 curl http://localhost:4000/products
 ```
-
+Obtener un producto
+/products/:id
+```bash
+curl http://localhost:4000/products/1
+```
+Crear producto
+/products/id
+```bash
+curl -X PUT http://localhost:4000/products/1 -H "Content-Type: application/json" -d '{"price":799,"stock":15,"active":true}'
 ```
 
+Soft delete
+/products/:id
+```bash
+curl -X DELETE http://localhost:4000/products/1
+```
 
+## Orders
+Listar todas las ordenes
+```bash
+curl http://localhost:4000/orders
+```
+Obtener una orden
+```bash
+curl http://localhost:4000/orders/1
+```
+Cambiar status
+/orders/:id/status
+```bash
+curl -X PUT http://localhost:4000/orders/1/status -H "Content-Type: application/json" -d '{"status":"shipped"}'
+```
+## Carrito
+Ver el carrito
+/cart/:userId
+```bash
+curl http://localhost:4000/cart/1
+```
 
+Agregar producto
+/cart/:userId/items
+```bash
+curl -X POST http://localhost:4000/cart/1/items -H "Content-Type: application/json" -d '{"productId":1,"quantity":2}'
+```
 
+Cambiar cantidad
+```bash
+curl -X PATCH http://localhost:4000/cart/1/items/1 -H "Content-Type: application/json" -d '{"quantity":5}'
+```
 
-
-
-
-
-
+Vaciar carrito
+/cart/:userId
+```bash
+curl -X DELETE http://localhost:4000/cart/1
+```
 ## Para barra de busqueda
 ```bash
 curl "http://localhost:4000/products/search?q=celular"

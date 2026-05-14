@@ -7,7 +7,7 @@
 
 ##Integrantes del Equipo: BINARY
 * **Prina Meredith Fonseca Novelo** — MerelyMeredith 
-***Luis Alberto Castro Roldán** — Luis Roldán2004 
+* **Luis Alberto Castro Roldán** — Luis Roldán2004 
 * **América Fernanda Nevarez de la Cruz** — AméricaNC 
 * **Karla Itzel Vázquez Cruz** — Xitzel 
 

@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+
+  orders    Order[]
+  cart      Cart?         // ← carrito ligado al usuario
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String      @db.Text
+  price       Float
+  stock       Int         @default(0)
+  image       String      @default("")
+  active      Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  categoryId  Int?
+  category    Category?   @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  orderItems  OrderItem[]
+  cartItems   CartItem[]  // ← productos en carritos
+}
+
+model ShippingMethod {
+  id            Int      @id @default(autoincrement())
+  name          String
+  description   String
+  price         Float
+  estimatedDays Int
+  active        Boolean  @default(true)
+
+  orders        Order[]
+}
+
+model Order {
+  id               Int            @id @default(autoincrement())
+  userId           Int
+  shippingMethodId Int
+  total            Float
+  status           String         @default("pending")
+  paymentMethod    String         @default("cash")
+  shippingAddress  String         @db.Text
+  createdAt        DateTime       @default(now())
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shippingMethod   ShippingMethod @relation(fields: [shippingMethodId], references: [id], onDelete: Restrict)
+  items            OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int
+  productId Int
+  quantity  Int
+  price     Float
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+}
+
+model Cart {
+  id        Int        @id @default(autoincrement())
+  userId    Int        @unique          // un solo carrito por usuario
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+}
+
+model CartItem {
+  id        Int     @id @default(autoincrement())
+  cartId    Int
+  productId Int
+  quantity  Int     @default(1)
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([cartId, productId])  // un producto no se repite en el mismo carrito
+}

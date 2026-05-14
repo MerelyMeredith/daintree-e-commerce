@@ -17,7 +17,7 @@ export async function login(formData) {
   try {
     // We send the credentials to the API. 
     // The API handles the encrypted password check and returns the user object if valid.
-    const response = await fetch('http://192.168.10.5:4000/User', {
+    const response = await fetch('http://192.168.10.5:4000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

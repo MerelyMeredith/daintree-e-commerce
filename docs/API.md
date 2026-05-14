@@ -276,3 +276,76 @@ fastify.delete('/categories/:id', async (req, reply) => {
 
 module.exports = routes
 ```
+
+## Users
+
+Consulta de todos los usuarios (get)
+```bash
+curl http://localhost:4000/users
+```
+
+Consulta de un usuario
+```bash
+curl http://localhost:4000/users/1
+```
+
+Creacion de un usuario
+```bash
+curl -X POST http://localhost:4000/users -H "Content-Type: application/json" -d '{"name":"Ana López","email":"ana@ejemplo.com","password":"segura1234","role":"user"}'
+```
+
+Actualizacion de campos de un usuario
+```bash
+curl -X PUT http://localhost:4000/users/1 -H "Content-Type: application/json" -d '{"name":"Ana Ruiz","email":"ana.nueva@ejemplo.com","role":"admin"}'
+```
+
+Actualizacion de contrasena (probar si funciona, contra hasheada)
+```bash
+curl -X PUT http://localhost:4000/users/1/password -H "Content-Type: application/json" -d '{"password":"nuevaSegura99"}'
+```
+
+
+## Category 
+
+Obtener todas las categorias
+```bash
+curl http://localhost:4000/categories
+```
+
+Ingresar una nueva categoria 
+```bash
+curl -X POST http://localhost:4000/categories -H "Content-Type: application/json" -d '{"name":"Periféricos"}'
+```
+
+Traer una categoria en especifico con todos sus productos 
+```bash
+curl -X POST http://localhost:4000/categories -H "Content-Type: application/json" -d '{"name":"Periféricos"}'
+```
+Actualizar el nombre de una categoria 
+```bash
+curl -X PUT http://localhost:4000/categories/1 -H "Content-Type: application/json" -d '{"name":"Periféricos Gaming"}'
+```
+Eliminar una categoria
+```bash
+curl http://localhost:4000/categories
+```
+
+## Shipping
+
+Obtener todos los metodos de shipping
+```bash
+curl http://localhost:4000/shipping
+```
+
+Mandar traer un metodo de shipping
+```bash
+curl http://localhost:4000/shipping/1
+```
+Crear un metodo de shipping
+```bash
+curl -X POST http://localhost:4000/shipping -H "Content-Type: application/json" -d '{"name":"Estándar","description":"Entrega en 5-7 días","price":99,"estimatedDays":7}'
+```
+Modificar un metodo de shipping
+```bash
+curl -X PUT http://localhost:4000/shipping/1 -H "Content-Type: application/json" -d '{"price":79,"estimatedDays":6,"active":true}'
+```
